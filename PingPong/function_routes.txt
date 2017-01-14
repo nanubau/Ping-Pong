@@ -1,0 +1,25 @@
+Functions :
+Entity Player:
+	1. set_game_id - sets game_id of opponets
+	2. set_score - increase score by 1
+	3. attack - genrates random number in range (1,10)
+	4. defense - creates a list of random number based on length
+
+ENTITY REFREE:
+	1.match - recurrsive function to create random oponents and start game
+	2.game - starts the game and declares winner
+	3.initialize (staticmethod) - to initialize refree variables
+	4.logging (staticmethod) - getting final data to be shown on template
+
+Routes :
+1. First GET API is called with url - 0.0.0.0:8000
+2. View called with get api intialize refree and registers player
+3. Refree obejcts calls a match function(recurssive function) with base condition of number of players left is one
+4. Match Genarates random oponents 
+5. Game starts till the length of list of  random oponents is not 0
+6. After every game winners are appended to another list and loosers are ignored 
+		-> defense and attack method from player class are used to check the winner
+		-> Loop continues till one of them reaches 5 points
+7. The winners list is passed recurrsively to match function using refree object
+
+

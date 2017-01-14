@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Ping Pong Example</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>             
+      <style>
+         div {
+            width : 200px;  
+            height : 200px;             
+         }
+         
+      </style>
+   </head>
+   
+   <body class="container"> 
+      {% if data.status == True %}
+         <h3 class ="card-panel teal lighten-2" align="center">Champion is {{data.champion}}</h3>
+            <h5 class ="card-panel light-green" align="center" style =" padding:5px; width: 200px;">Final Round</h5>
+            <table class="centered" style ="padding : 5px;">
+               <thead>
+                  <tr><th>Game ID </th><th>WINNER(SCORE)</th><th>LOSER(SCORE)</th></tr>
+               </thead>
+               <tbody>
+                  {% for i in data.third_round %}
+                  <tr><td>{{i.game_id}}</td><td>{{i.WINNER}}({{i.WINNER_SCORE}})</td><td>{{i.LOSER}}({{i.LOSER_SCORE}})</td></tr>
+                  {% endfor %}
+               </tbody>
+
+            </table>
+            <h5 class ="card-panel light-green" align="center" style ="padding:5px; width: 300px;">Semi Final Round</h5>
+            <table class="centered" style ="padding : 5px;">
+               <thead>
+                  <tr><th>Game ID </th><th>WINNER(SCORE)</th><th>LOSER(SCORE)</th></tr>
+               </thead>
+               <tbody>
+                  {% for i in data.second_round %}
+                  <tr><td>{{i.game_id}}</td><td>{{i.WINNER}}({{i.WINNER_SCORE}})</td><td>{{i.LOSER}}({{i.LOSER_SCORE}})</td></tr>
+                  {% endfor %}
+               </tbody>
+            </table>
+            <h5 class ="card-panel light-green" align="center" style ="padding:5px; width: 400px;">Quater Final Round</h5>
+            <table class="centered" style ="padding : 100px;">
+               <thead>
+                  <tr><th>Game ID </th><th>WINNER(SCORE)</th><th>LOSER(SCORE)</th></tr>
+               </thead>
+               <tbody>
+                  {% for i in data.first_round %}
+                  <tr><td>{{i.game_id}}</td><td>{{i.WINNER}}({{i.WINNER_SCORE}})</td><td>{{i.LOSER}}({{i.LOSER_SCORE}})</td></tr>
+                  {% endfor %}
+               </tbody>
+            </table>
+
+       {% elif data.status == False %}
+       <h3 class ="card-panel teal lighten-2" align="center">Site is under maintenance</h3>
+       {% endif %}
+   </body>
+</html>
