@@ -1,5 +1,11 @@
 # Ping-Pong
-cd Ping-Ping-master/PingPong
+cd Ping-Ping-master/PingPong     
+
+
+
+
+
+
 pip install -r requirements.txt         
 
 
